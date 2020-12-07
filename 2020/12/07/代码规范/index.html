@@ -375,7 +375,7 @@
 <ol>
 <li>在表查询中，一律不要使用 * 作为查询的字段列表，需要哪些字段必须明确写明。</li>
 <li>POJO 类的布尔属性不能加 is，而数据库字段必须加 is_，要求在 resultMap 中进行字段与属性之间的映射。</li>
-<li>不要用 resultClass 当返回参数，即使所有类属性名与数据库字段一一对应，也需要定义<resultMap>；反过来，每一个表也必然有一个<resultMap>与之对应。</li>
+<li>不要用 resultClass 当返回参数，即使所有类属性名与数据库字段一一对应，也需要定义/<resultMap/>；反过来，每一个表也必然有一个/<resultMap/>与之对应。</li>
 <li>不允许直接拿 HashMap 与 Hashtable 作为查询结果集的输出。</li>
 </ol>
 <hr>
@@ -389,8 +389,7 @@
 <li>二方库里可以定义枚举类型，参数可以使用枚举类型，但是接口返回值不允许使用枚举类型或者包含枚举类型的 POJO 对象。</li>
 </ol>
 <hr>
-<p>##设计规约</p>
-<ol>
+<h2 id="设计规约"><a href="#设计规约" class="headerlink" title="设计规约"></a>设计规约</h2><ol>
 <li>存储方案和底层数据结构的设计获得评审一致通过，并沉淀成为文档。</li>
 <li>在需求分析阶段，如果与系统交互的 User 超过一类并且相关的 User Case 超过 5 个， 使用用例图来表达更加清晰的结构化需求。</li>
 <li>如果某个业务对象的状态超过 3 个，使用状态图来表达并且明确状态变化的各个触发条件。</li>
@@ -425,7 +424,7 @@
     <ul class="mdui-menu" id="toc">
       <li class="mdui-menu-item">
         <a href="/2020/12/07/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/" id="toc-header" class="mdui-ripple">文章目录</a>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E7%A8%8B%E8%A7%84%E7%BA%A6"><span class="toc-number">1.</span> <span class="toc-text">编程规约</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8%E6%97%A5%E5%BF%97"><span class="toc-number">2.</span> <span class="toc-text">异常日志</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E8%A7%84%E8%8C%83"><span class="toc-number">3.</span> <span class="toc-text">安全规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL-%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">4.</span> <span class="toc-text">MySQL 数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E7%A8%8B%E7%BB%93%E6%9E%84"><span class="toc-number">5.</span> <span class="toc-text">工程结构</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E7%A8%8B%E8%A7%84%E7%BA%A6"><span class="toc-number">1.</span> <span class="toc-text">编程规约</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8%E6%97%A5%E5%BF%97"><span class="toc-number">2.</span> <span class="toc-text">异常日志</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E8%A7%84%E8%8C%83"><span class="toc-number">3.</span> <span class="toc-text">安全规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL-%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">4.</span> <span class="toc-text">MySQL 数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E7%A8%8B%E7%BB%93%E6%9E%84"><span class="toc-number">5.</span> <span class="toc-text">工程结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E8%A7%84%E7%BA%A6"><span class="toc-number">6.</span> <span class="toc-text">设计规约</span></a></li></ol>
       </li>
     </ul>
   </div>
