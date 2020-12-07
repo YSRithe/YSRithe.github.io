@@ -373,9 +373,7 @@
 <li>ORM 映射</li>
 </ul>
 <ol>
-<li>在表查询中，一律不要使用 * 作为查询的字段列表，需要哪些字段必须明确写明。</li>
 <li>POJO 类的布尔属性不能加 is，而数据库字段必须加 is_，要求在 resultMap 中进行字段与属性之间的映射。</li>
-<li>不要用 resultClass 当返回参数，即使所有类属性名与数据库字段一一对应，也需要定义/<resultMap/>；反过来，每一个表也必然有一个/<resultMap/>与之对应。</li>
 <li>不允许直接拿 HashMap 与 Hashtable 作为查询结果集的输出。</li>
 </ol>
 <hr>
