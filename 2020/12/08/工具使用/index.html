@@ -314,11 +314,11 @@
 <ol>
 <li><p>在腾讯云centOS 7上安装docker</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 通过yum源安装docker</span><br><span class="line">yum -y install docker</span><br><span class="line"># 启动docker</span><br><span class="line">systemctl start docker</span><br><span class="line"># 开机自启</span><br><span class="line">sudo systemctl enable docker</span><br></pre></td></tr></table></figure></li>
-<li><p>下载gogs的docker镜像<br>`docker pull gogs/gogs</p>
+<li><p>下载gogs的docker镜像<br><code>docker pull gogs/gogs</code></p>
 </li>
-<li><p>创建gogs存储的目录<br>`mkdir -p /var/gogs</p>
+<li><p>创建gogs存储的目录<br><code>mkdir -p /var/gogs</code></p>
 </li>
-<li><p>运行镜像, 产生容器<br>`docker run –name=gogs -p 10022:22 -p 10080:3000 -v /var/gogs:/data gogs/gogs</p>
+<li><p>运行镜像, 产生容器<br><code>docker run --name=gogs -p 10022:22 -p 10080:3000 -v /var/gogs:/data gogs/gogs</code></p>
 </li>
 <li><p>然后就可以通过浏览器访问服务器公网ip地址:10080进去配置页面</p>
 </li>
