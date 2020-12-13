@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="/icons/favicon.ico">
+    
+
+    
+    
+        
+<link rel="stylesheet" href="/css/mdui.min.v1.0.0.css">
+
+    
+    
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+          
+
+
+    
+    
+    <title>
+        
+            vue前端 | YS&#39;s Blog
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 5.2.0"></head>
+<body class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-primary-teal mdui-theme-accent-blue">
+  
+  <header class="mdui-appbar mdui-appbar-fixed">
+  <div id="toolbar" class="mdui-toolbar mdui-color-theme">
+    <button class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="iconfont icon-menu"></i></button>
+    <a href="/" class="mdui-typo-headline">YS&#39;s Blog</a>
+    <a href="/" class="header-subtitle mdui-typo-headline"></a>
+    <div class="mdui-toolbar-spacer"></div>
+    <button class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: 'search'}"><i class="iconfont icon-search"></i></button>
+  </div>
+</header>
+
+<div class="mdui-dialog" id="search">
+  
+    <div class="search-form">
+      <input type="search" class="search-form-input" placeholder="请输入关键字" onfocus="listenSearchFunc()">
+    </div>
+    <div class="search-result" data-resource="/search.xml"></div>
+  
+</div>
+
+  <aside id="sidebar" class="mdui-drawer">
+    <div class="mdui-tab" mdui-tab>
+        <a href="#sidebar-tab1" id="sidebartab" class="mdui-ripple mdui-tab-active">站点概览</a>
+        <a href="#sidebar-tab2" id="sidebartab" class="mdui-ripple">关于</a>
+    </div>
+
+    
+    <div id="sidebar-tab1" class="mdui-p-a-1">
+        <div class="mdui-list">
+            
+                
+                <a href="/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-home"></i>
+                    </div>
+                    <div class="mdui-list-item-content">主页</div>
+                </a>
+            
+                
+                <a href="/tags/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-bookmark"></i>
+                    </div>
+                    <div class="mdui-list-item-content">标签</div>
+                </a>
+            
+                
+                <a href="/categories/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-folder"></i>
+                    </div>
+                    <div class="mdui-list-item-content">分类</div>
+                </a>
+            
+                
+                <a href="/archives/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-archive"></i>
+                    </div>
+                    <div class="mdui-list-item-content">归档</div>
+                </a>
+            
+                
+                <a href="/tools/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-tools"></i>
+                    </div>
+                    <div class="mdui-list-item-content">工具箱</div>
+                </a>
+            
+                
+                <a href="/about/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-user"></i>
+                    </div>
+                    <div class="mdui-list-item-content">关于</div>
+                </a>
+            
+            <div class="mdui-list-item mdui-ripple">
+                <div class="mdui-list-item-icon">
+                    <i class="iconfont icon-moon"></i>
+                </div>
+                <div class="mdui-list-item-content">夜间模式</div>
+                <label class="mdui-switch" id="darkmode">
+                  <input type="checkbox" id="nightmode_switch"/>
+                  <i class="mdui-switch-icon"></i>
+                </label>
+            </div>           
+        </div>
+    </div>
+
+    
+    <div id="sidebar-tab2" class="mdui-p-a-1">
+        <div class="sidebar-overview">
+            <div class="sidebar-avatar">
+                
+                    <img src="/icons/avatar.gif"/>
+                
+            </div>
+            <div class="sidebar-author-name">Yang Song</div>
+            <div class="sidebar-description">努力学习的小白</div>
+        </div>
+        <div class="sidebar-links">
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-mail"></i></span>
+                    <a href="mailto:1771209929@qq.com" class="mdui-chip-title">E-Mail</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-github"></i></span>
+                    <a target="_blank" rel="noopener" href="https://github.com/YSRithe" class="mdui-chip-title">GitHub</a>
+                </div>
+            
+        </div>
+        <ul class="mdui-list" mdui-collapse="{accordion: true}">
+            <li class="mdui-collapse-item">
+                <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-link"></i>
+                    </div>
+                    <div class="mdui-list-item-content">友情链接</div>
+                    <div class="mdui-collapse-item-arrow">
+                        <i class="mdui-list-item-icon iconfont icon-angle-down"></i>
+                    </div>
+                </div>
+                <ul id="linksList" class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                    
+                        <a target="_blank" rel="noopener" href="https://garybear.cn/hexo-theme-meadow/" class="mdui-list-item mdui-ripple">
+                            Meadow说明文档
+                        </a>
+                    
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="mdui-divider"></div>
+    
+    
+</aside>
+  
+  <main id="main-contain" class="mdui-container mdui-m-t-5">
+    <article id="article" class="mdui-card mdui-p-b-2 mdui-m-b-5">
+  <header class="mdui-card-media">
+    
+    
+      <div class="post-header"> 
+  <a class="post-header-title" href="/2020/12/13/vue%E5%89%8D%E7%AB%AF/">vue前端</a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      发布于:&nbsp;2020-12-13
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      更新于:&nbsp;2020-12-13
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      分类于:&nbsp;<a class="category-link" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a> > <a class="category-link" href="/categories/%E6%A1%86%E6%9E%B6/">框架</a>
+    </span>
+    
+      <span>
+        <span class="iconfont icon-eye"></span>
+        阅读次数:&nbsp;
+        <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+      </span>
+    
+  </div>
+</div>   
+    
+
+
+
+    
+    
+    <div class="mdui-card-menu">
+    
+      <button class="mdui-btn mdui-btn-icon mdui-text-color-teal" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="iconfont icon-share"></i></button>
+      <ul class="mdui-menu" id="share_menu">
+        <li class="mdui-menu-item">
+          <a href="http://service.weibo.com/share/share.php?appkey=&title=vue前端&url=http://example.com/2020/12/13/vue%E5%89%8D%E7%AB%AF/&pic=http://example.com/null&searchPic=false&style=simple" target="_blank" class="mdui-ripple">分享到 Weibo</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://twitter.com/intent/tweet?text=vue前端&url=http://example.com/2020/12/13/vue%E5%89%8D%E7%AB%AF/&via=Yang Song" target="_blank" class="mdui-ripple">分享到 Twitter</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/12/13/vue%E5%89%8D%E7%AB%AF/" target="_blank" class="mdui-ripple">分享到 Facebook</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://plus.google.com/share?url=http://example.com/2020/12/13/vue%E5%89%8D%E7%AB%AF/" target="_blank" class="mdui-ripple">分享到 Google+</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://example.com/2020/12/13/vue%E5%89%8D%E7%AB%AF/&title=vue前端" target="_blank" class="mdui-ripple">分享到 LinkedIn</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="http://connect.qq.com/widget/shareqq/index.html?site=YS&#39;s Blog&title=vue前端&summary=努力学习的小白&pics=http://example.com/null&url=http://example.com/2020/12/13/vue%E5%89%8D%E7%AB%AF/" target="_blank" class="mdui-ripple">分享到 QQ</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://telegram.me/share/url?url=http://example.com/2020/12/13/vue%E5%89%8D%E7%AB%AF/&text=vue前端" target="_blank" class="mdui-ripple">分享到 Telegram</a>
+        </li>
+      </ul>
+    
+  </div>
+  </header>
+  
+  
+  
+  
+  <div class="post-tags">
+    
+      <i class="iconfont icon-tag">
+        <a rel="tag" href = /tags/%E5%89%8D%E7%AB%AF/ >前端</a>
+      </i>
+    
+      <i class="iconfont icon-tag">
+        <a rel="tag" href = /tags/vue/ >vue</a>
+      </i>
+    
+      <i class="iconfont icon-tag">
+        <a rel="tag" href = /tags/echarts/ >echarts</a>
+      </i>
+    
+  </div>
+
+  
+  <div class="mdui-card-content mdui-typo mdui-p-x-4">
+    <p>这周，老师给了一个前后端分离的项目，最近几天都是在完成前端的静态首页，给了一个例图，使用echarts组件来完成。<br>期间专门有前端小姐姐来给我们讲解如何使用vue，在讲解知识点会给我们实操演示。了解到vueVM是双向绑定的，只要在代码上改动，在网页上就会马上变换。<br>分为4个模块：电子围栏分布，无线设备概况，预警信息，物联网卡概况。为了方便说明，编号为1-4。<br>首先是对这4个模块布局，1号占8份，234共占16份，23和4上下等分，2和3左右等分。</p>
+<h2 id="电子围栏分布"><a href="#电子围栏分布" class="headerlink" title="电子围栏分布"></a>电子围栏分布</h2><p>该模块主要是显示湖南省的地图，为此我在百度时发现如果使用echarts组件则需要用到地图的js文件，然后队友发现项目中已有该文件，只需导入。<br><code>import &#39;echarts/map/js/province/hunan&#39;</code><br>然后实例化option，配置属性，data置入数据就能显示地图了。为了完善成例图的样子，增加了图例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">visualMap : &#123;</span><br><span class="line">    &#x2F;&#x2F; 左下角定义 在选中范围中的视觉元素 渐变地区颜色</span><br><span class="line">    left: 10,</span><br><span class="line">    showLabel:true,</span><br><span class="line">    show: true,</span><br><span class="line">    itemWidth: 20, &#x2F;&#x2F; 每个图元的宽度</span><br><span class="line">    itemGap: 2,    &#x2F;&#x2F; 每两个图元之间的间隔距离，单位为px</span><br><span class="line">    pieces: [      &#x2F;&#x2F; 自定义每一段的范围，以及每一段的文字</span><br><span class="line">      &#123; gte: 0, lte: 10, label: &#39;0-10&#39;, color: &#39;#d1d4da&#39; &#125;,</span><br><span class="line">      &#123; gte: 10, lte: 40, label: &#39;10-40&#39;, color: &#39;#96b5ef&#39; &#125;,</span><br><span class="line">      &#123; gte: 40, lte: 60, label: &#39;40-60&#39;, color: &#39;#6797ef&#39; &#125;,</span><br><span class="line">      &#123; gte: 60, lte: 80, label: &#39;60-80&#39;, color: &#39;#3375e4&#39; &#125;,</span><br><span class="line">      &#123; gte: 80, lte: 100, label: &#39;80-100&#39;, color: &#39;#035cf5&#39; &#125;,</span><br><span class="line">    ],</span><br><span class="line">    textStyle: &#123;</span><br><span class="line">      color: &#39;#737373&#39;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="无线设备概况"><a href="#无线设备概况" class="headerlink" title="无线设备概况"></a>无线设备概况</h2><p>在该模块，主要使用到的是element的icon图标。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;i class&#x3D;&quot;el-icon-s-platform&quot;&gt;&lt;&#x2F;i&gt;&#x2F;&#x2F;icon图标</span><br><span class="line">&lt;i class&#x3D;&quot;el-icon-s-order&quot;&gt;&lt;&#x2F;i&gt;</span><br></pre></td></tr></table></figure>
+<p>以及echarts的水球图实例。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line">const option2 &#x3D; &#123;</span><br><span class="line">  title: &#123;&#x2F;&#x2F;标题</span><br><span class="line">    text:&#39;在线&#39;,</span><br><span class="line">    textStyle: &#123;&#x2F;&#x2F;标题的样式</span><br><span class="line">      color:&#39;#000&#39;,&#x2F;&#x2F;字体颜色</span><br><span class="line">      fontFamily: &#39;Microsoft YaHei&#39;,&#x2F;&#x2F;字体</span><br><span class="line">      align: &#39;center&#39;,&#x2F;&#x2F;文字的水平方式</span><br><span class="line">      verticalAlign: &#39;middle&#39;&#x2F;&#x2F;文字的垂直方式</span><br><span class="line">    &#125;,</span><br><span class="line">    top:120,</span><br><span class="line">    left: 0,&#x2F;&#x2F;定位</span><br><span class="line">    backgroundColor: &#39;#fff&#39;&#x2F;&#x2F;文字区域的背景颜色</span><br><span class="line">  &#125;,</span><br><span class="line">  series: [&#123;</span><br><span class="line">    type: &#39;liquidFill&#39;,&#x2F;&#x2F;类型</span><br><span class="line">    data: [0.7, 0.5, 0.4,],&#x2F;&#x2F;数据是个数组 数组的每一项的值是0-1</span><br><span class="line">    grid:&#123;</span><br><span class="line">      top: 100,</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">    label: &#123;                    &#x2F;&#x2F;水球图里面的文字和字体等设置</span><br><span class="line">      normal: &#123;</span><br><span class="line">        textStyle: &#123;</span><br><span class="line">          color: &quot;#000&quot;,</span><br><span class="line">          fontSize: 14</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    outline: &#123;</span><br><span class="line">      &#x2F;&#x2F;show: true , &#x2F;&#x2F;是否显示轮廓 布尔值</span><br><span class="line">      borderDistance: 0, &#x2F;&#x2F;外部轮廓与图表的距离 数字</span><br><span class="line">      itemStyle:&#123;</span><br><span class="line">        &#x2F;&#x2F;borderColor:&#39;rgba(0,124,195,1)&#39;, &#x2F;&#x2F;边框的颜色</span><br><span class="line">        borderWidth: 0,  &#x2F;&#x2F;边框的宽度</span><br><span class="line">        &#x2F;&#x2F;shadowBlur: 5 , &#x2F;&#x2F;外部轮廓的阴影范围 一旦设置了内外都有阴影</span><br><span class="line">        &#x2F;&#x2F;shadowColor: &#39;#000&#39; &#x2F;&#x2F;外部轮廓的阴影颜色</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    backgroundStyle: &#123;</span><br><span class="line">      color:&#39;rgba(255,255,255,1)&#39;,&#x2F;&#x2F;图表的背景颜色</span><br><span class="line">      borderWidth: &#39;5&#39;,&#x2F;&#x2F;图表的边框宽度</span><br><span class="line">      borderColor: &#39;rgba(30,227,137,1)&#39;,&#x2F;&#x2F;图表的边框颜色</span><br><span class="line">      itemStyle: &#123;</span><br><span class="line">        shadowBlur:100,&#x2F;&#x2F;设置无用</span><br><span class="line">        shadowColor: &#39;#1ee389&#39;,&#x2F;&#x2F;设置无用</span><br><span class="line">        opacity: 1 &#x2F;&#x2F;设置无用</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    itemStyle: &#123;</span><br><span class="line">      opacity:0.5,&#x2F;&#x2F;波浪的透明度</span><br><span class="line">      shadowBlur: 10,&#x2F;&#x2F;波浪的阴影范围</span><br><span class="line">      shadowColor:&#39;#1ee389&#39;&#x2F;&#x2F;阴影颜色</span><br><span class="line">    &#125;,</span><br><span class="line">    emphasis:&#123;</span><br><span class="line">      itemStyle: &#123;</span><br><span class="line">        opacity :1 &#x2F;&#x2F;鼠标经过波浪颜色的透明度</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    color: [&#39;rgba(30,227,137,0.5)&#39;,&#39;rgba(30,227,137,0.5)&#39;,&#39;rgba(30,227,137,0.5)&#39;,],&#x2F;&#x2F;水波的颜色 对应的是data里面值</span><br><span class="line">    shape: &#39;circle&#39;,&#x2F;&#x2F;水填充图的形状 circle默认圆形  rect圆角矩形  triangle三角形  diamond菱形  pin水滴状 arrow箭头状  还可以是svg的path</span><br><span class="line">    center: [&#39;50%&#39;,&#39;50%&#39;],&#x2F;&#x2F;图表相对于盒子的位置 第一个是水平的位置 第二个是垂直的值 默认是[50%,50%]是在水平和垂直方向居中 可以设置百分比 也可以设置具体值</span><br><span class="line">    radius: &#39;80%&#39;, &#x2F;&#x2F;图表的大小 值是圆的直径 可以是百分比 也可以是具体值 100%则占满整个盒子 默认是40%; 百分比下是根据宽高最小的一个为参照依据</span><br><span class="line">    amplitude:3,   &#x2F;&#x2F;振幅 是波浪的震荡幅度 可以取具体的值 也可以是百分比 百分比下是按图标的直径来算</span><br><span class="line">    waveLength:&#39;50%&#39;,&#x2F;&#x2F;波的长度 可以是百分比也可以是具体的像素值  百分比下是相对于直径的 取得越大波浪的起伏越小</span><br><span class="line">    phase:0 ,&#x2F;&#x2F;波的相位弧度 默认情况下是自动</span><br><span class="line">    period: (value,index)&#x3D;&gt;&#123;&#x2F;&#x2F;控制波的移动速度 可以是函数 也可以是数字 两个参数  value 是data数据里面的值 index 是data值的索引</span><br><span class="line"></span><br><span class="line">      return index*2000;</span><br><span class="line">    &#125;,</span><br><span class="line">    direction: &#39;left&#39;,&#x2F;&#x2F;波移动的速度 两个参数  left 从右往左 right 从左往右</span><br><span class="line">    waveAnimation: true, &#x2F;&#x2F;控制波动画的开关  值是布尔值 false 是关闭动画 true 是开启动画 也是默认值</span><br><span class="line">    animationEasing: &#39;linear&#39;,&#x2F;&#x2F;初始动画</span><br><span class="line">    animationEasingUpdate: &#39;quarticInOut&#39;,&#x2F;&#x2F;数据更新的动画效果</span><br><span class="line">    animationDuration: 3000, &#x2F;&#x2F;初始动画的时长，支持回调函数，可以通过每个数据返回不同的 delay 时间实现更绚丽的初始动画效果</span><br><span class="line">    animationDurationUpdate : 300 &#x2F;&#x2F;数据更新动画的时长</span><br><span class="line">  &#125;],</span><br><span class="line">  &#x2F;&#x2F;backgroundColor: &#39;rgba(255,0,0,0.1)&#39;容器背景颜色</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="预警信息"><a href="#预警信息" class="headerlink" title="预警信息"></a>预警信息</h2><h2 id="这个模块是要提示各种预警信息的，由于这个是静态页面，也就不过多考虑了。"><a href="#这个模块是要提示各种预警信息的，由于这个是静态页面，也就不过多考虑了。" class="headerlink" title="这个模块是要提示各种预警信息的，由于这个是静态页面，也就不过多考虑了。"></a>这个模块是要提示各种预警信息的，由于这个是静态页面，也就不过多考虑了。</h2><h2 id="物联网卡概况"><a href="#物联网卡概况" class="headerlink" title="物联网卡概况"></a>物联网卡概况</h2><p>这个模块和2号模块的实现很相似，只需将水球图换成环饼图就行了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">const option4 &#x3D; &#123;</span><br><span class="line">  tooltip: &#123;</span><br><span class="line">    trigger: &#39;item&#39;,</span><br><span class="line">    formatter: &#39;&#123;b|&#123;b&#125;&#125;\n  &#123;per|&#123;d&#125;%&#125;&#39;</span><br><span class="line">  &#125;,</span><br><span class="line">  legend: &#123;</span><br><span class="line">    bottom: 0,</span><br><span class="line">    left: 80,</span><br><span class="line">    data: [&#39;待激活&#39;, &#39;已停用&#39;, &#39;搜索引擎&#39;, &#39;异常&#39;]</span><br><span class="line">  &#125;,</span><br><span class="line">  series: [</span><br><span class="line">    &#123;</span><br><span class="line">      name: &#39;状态&#39;,</span><br><span class="line">      type: &#39;pie&#39;,</span><br><span class="line">      selectedMode: &#39;single&#39;,</span><br><span class="line">      radius: [0, &#39;10%&#39;],</span><br><span class="line"></span><br><span class="line">      label: &#123;</span><br><span class="line">        position: &#39;inner&#39;</span><br><span class="line">      &#125;,</span><br><span class="line">      labelLine: &#123;</span><br><span class="line">        show: false</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      name: &#39;状态&#39;,</span><br><span class="line">      type: &#39;pie&#39;,</span><br><span class="line">      radius: [&#39;40%&#39;, &#39;55%&#39;],</span><br><span class="line">      label: &#123;</span><br><span class="line">        formatter: &#39;&#123;b|&#123;b&#125;&#125;\n  &#123;per|&#123;d&#125;%&#125;&#39;,</span><br><span class="line">        backgroundColor: &#39;#eee&#39;,</span><br><span class="line">        borderColor: &#39;#aaa&#39;,</span><br><span class="line">        borderWidth: 1,</span><br><span class="line">        borderRadius: 4,</span><br><span class="line">        rich: &#123;</span><br><span class="line">          b: &#123;</span><br><span class="line">            left:10,</span><br><span class="line">            fontSize: 13,</span><br><span class="line">            lineHeight: 33</span><br><span class="line">          &#125;,</span><br><span class="line">          per: &#123;</span><br><span class="line">            color: &#39;#000&#39;,</span><br><span class="line">            backgroundColor: &#39;#eee&#39;,</span><br><span class="line">            padding: [2, 4],</span><br><span class="line">            borderRadius: 2</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      data: [</span><br><span class="line">        &#123;value: 25, name: &#39;待激活&#39;&#125;,</span><br><span class="line">        &#123;value: 25, name: &#39;已停用&#39;&#125;,</span><br><span class="line">        &#123;value: 25, name: &#39;搜索引擎&#39;&#125;,</span><br><span class="line">        &#123;value: 25, name: &#39;异常&#39;&#125;,</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>做这个作业，主要是为了熟悉前端的代码，防止我们这些搞后端的看不懂前端代码的尴尬局面出现。<br>我发现熟悉的最好方法就是自己动手去更改代码，透过可视化了解代码的改动会对前端显示造成什么样的影响，明白各种标签各种属性所代表的意义。<br>最后把我完成的首页图放上。<br><img src="D:\blog\blog\source\icons\图片1.png"></p>
+
+  </div>
+  <!--文末结束语-->
+  
+    <div style="text-align:center;color: #ccc;font-size:24px;"> --- 本文结束 <i class="iconfont icon-heartbeat" style="font-size:24px;"></i> The End --- </div>
+  
+  <!--页脚广告-->
+  
+  <div class="mdui-divider"></div>
+  
+  <nav>
+    
+    
+      <a rel="next" class="post-nav-item mdui-float-right" href="/2020/12/10/linux%E5%9F%BA%E7%A1%80/">
+        <span>linux基础</span>
+        <i class="iconfont icon-angle-right"></i>
+      </a>
+    
+  </nav>
+</article>
+
+
+
+
+  <div class="toc-button"  style="z-index: 100;">
+    <button class="mdui-fab mdui-ripple mdui-color-teal" mdui-menu="{target: '#toc'}"><i class="iconfont icon-list"></i></button>
+    <ul class="mdui-menu" id="toc">
+      <li class="mdui-menu-item">
+        <a href="/2020/12/13/vue%E5%89%8D%E7%AB%AF/" id="toc-header" class="mdui-ripple">文章目录</a>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%B5%E5%AD%90%E5%9B%B4%E6%A0%8F%E5%88%86%E5%B8%83"><span class="toc-number">1.</span> <span class="toc-text">电子围栏分布</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A0%E7%BA%BF%E8%AE%BE%E5%A4%87%E6%A6%82%E5%86%B5"><span class="toc-number">2.</span> <span class="toc-text">无线设备概况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%84%E8%AD%A6%E4%BF%A1%E6%81%AF"><span class="toc-number">3.</span> <span class="toc-text">预警信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%99%E4%B8%AA%E6%A8%A1%E5%9D%97%E6%98%AF%E8%A6%81%E6%8F%90%E7%A4%BA%E5%90%84%E7%A7%8D%E9%A2%84%E8%AD%A6%E4%BF%A1%E6%81%AF%E7%9A%84%EF%BC%8C%E7%94%B1%E4%BA%8E%E8%BF%99%E4%B8%AA%E6%98%AF%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2%EF%BC%8C%E4%B9%9F%E5%B0%B1%E4%B8%8D%E8%BF%87%E5%A4%9A%E8%80%83%E8%99%91%E4%BA%86%E3%80%82"><span class="toc-number">4.</span> <span class="toc-text">这个模块是要提示各种预警信息的，由于这个是静态页面，也就不过多考虑了。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%A9%E8%81%94%E7%BD%91%E5%8D%A1%E6%A6%82%E5%86%B5"><span class="toc-number">5.</span> <span class="toc-text">物联网卡概况</span></a></li></ol>
+      </li>
+    </ul>
+  </div>
+
+
+
+    <div id="comment" class="mdui-card mdui-p-a-2 mdui-m-b-5">
+      <div class="mdui-tab" mdui-tab>
+        
+          <a href="#comment-tab0" class="mdui-ripple">gitalk</a>
+        
+          <a href="#comment-tab1" class="mdui-ripple">livere</a>
+        
+      </div>
+      
+        <div id="comment-tab0" class="mdui-p-a-2">
+          <div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+<script>
+  var gitalk = new Gitalk({
+    clientID: '',
+    clientSecret: '',
+    repo: '',
+    owner: '',
+    admin: [''],
+    id:  md5(location.pathname) ,
+    distractionFreeMode: 'true',
+  });
+  gitalk.render('gitalk-container');
+</script>
+        </div>
+      
+        <div id="comment-tab1" class="mdui-p-a-2">
+          <div id="lv-container" data-id="city" data-uid="">
+  <script type="text/javascript">
+    (function (d, s) {
+      var j, e = d.getElementsByTagName(s)[0];
+      if (typeof LivereTower === 'function') { return; }
+      j = d.createElement(s);
+      j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+      j.async = true;
+      e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+  </script>
+  <noscript>Please enable JavaScript to view the comments powered by LiveRe.</noscript>
+</div>
+        </div>
+      
+    </div>
+
+  </main>
+  <footer id="footer" class="mdui-text-center mdui-m-t-5 mdui-p-b-2 mdui-p-t-4 mdui-color-theme">
+  <div class="mdui-container">
+    <div class="mdui-row">
+      
+        <a href="https://beian.miit.gov.cn" rel="noopener" target="_blank"></a>
+      
+      <span>
+        &copy; 2015 - 2020 
+        
+          <span style="color:#d9333f" class="iconfont icon-heart"></span>
+        
+        Yang Song
+      </span>
+    </div>
+    <div class="mdui-row">
+      
+        <div class="mdui-col-xs-6 mdui-text-right">
+          <span>Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a></span>
+        </div>
+        <div class="mdui-col-xs-6 mdui-text-left">
+          <span>Theme: <a href="https://github.com/kb1000fx/Meadow" rel="noopener" target="_blank">Meadow</a></span>
+        </div>
+      
+    </div>
+    <div class="mdui-row">
+      
+        <div class="mdui-col-xs-6 mdui-text-right">
+          <span id="busuanzi_container_site_uv" style="display: none;"> <span class="iconfont icon-user"></span>总访客量 <span id="busuanzi_value_site_uv"></span></span>
+        </div>
+        <div class="mdui-col-xs-6 mdui-text-left">
+          <span id="busuanzi_container_site_pv" style="display: none;"> <span class="iconfont icon-eye"></span>总访问量 <span id="busuanzi_value_site_pv"></span></span>
+        </div>
+      
+    </div>
+ </div>
+</footer>
+  
+  <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-teal" style="z-index:100;"><i class="iconfont icon-arrowup"></i></button>
+  
+  
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({
+        startOnLoad: true,
+        theme: "default"
+    });</script>
+
+
+
+
+    
+<script src="/js/mdui.min.v1.0.0.js"></script>
+
+
+
+
+<script src="/js/meadow.js"></script>
+
+</body>
+</html >
