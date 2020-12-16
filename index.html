@@ -266,6 +266,61 @@
       
       
         <div class="post-header"> 
+  <a class="post-header-title" href="/2020/12/16/nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E5%AE%9E%E6%88%98/">nginx反向代理实战</a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      发布于:&nbsp;2020-12-16
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      更新于:&nbsp;2020-12-16
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      分类于:&nbsp;<a class="category-link" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a> > <a class="category-link" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a> > <a class="category-link" href="/categories/%E6%A1%86%E6%9E%B6/">框架</a>
+    </span>
+    
+  </div>
+</div>   
+    
+
+
+
+      
+      
+  <div class="post-tags">
+    
+      <i class="iconfont icon-tag">
+        <a rel="tag" href = /tags/nginx/ >nginx</a>
+      </i>
+    
+      <i class="iconfont icon-tag">
+        <a rel="tag" href = /tags/springboot/ >springboot</a>
+      </i>
+    
+  </div>
+
+      
+      <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
+        <div class="post-abstract mdui-typo ">
+          
+            <p>昨天学习了nginx基础，今天实战nginx反向代理，能让同一局域网下的其他ip访问我的ip进而访问到我部署的项目。</p>
+<ul>
+<li>首先在服务器安装nginx<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 安装nginx</span><br><span class="line">yum -y install nginx</span><br><span class="line"># 关闭selinux</span><br><span class="line">setenforce 0</span><br><span class="line"># 关闭防火墙</span><br><span class="line">systemctl stop firewalld &amp;&amp; systemctl disable firewalld</span><br><span class="line"># 启动nginx服务</span><br><span class="line">systemctl start nginx &amp;&amp; systemctl enable nginx</span><br></pre></td></tr></table></figure>
+          
+        </div>
+        
+        <div style="text-align:center;">
+          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2020/12/16/nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E5%AE%9E%E6%88%98/">阅读更多</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="mdui-card mdui-m-b-5 mdui-hoverable">    
+      
+      
+        <div class="post-header"> 
   <a class="post-header-title" href="/2020/12/14/nginx%E5%9F%BA%E7%A1%80/">nginx基础</a>
   <div class="post-header-meta">
     <span>
