@@ -46,6 +46,62 @@
 
 
 
+    
+        <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        
+            load: ['[tex]/mhchem'],
+        
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        
+            packages: {'[+]': ['mhchem']},
+        
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
           
 
 
@@ -206,41 +262,133 @@
   
   <main id="main-contain" class="mdui-container mdui-m-t-5">
     
+    <article class="mdui-card mdui-m-b-5 mdui-hoverable">    
+      
+      
+        <div class="post-header"> 
+  <a class="post-header-title" href="/2020/12/07/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/">代码规范</a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      发布于:&nbsp;2020-12-07
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      更新于:&nbsp;2020-12-07
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      分类于:&nbsp;<a class="category-link" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a>
+    </span>
     
+  </div>
+</div>   
     
 
 
-<div class="mdui-card mdui-p-a-4 mdui-m-b-5">
-    <div class="posts-collapse">
-        <div class="collection-title">
-            <h2>实战<small>分类</small></h2>
+
+      
+      
+  <div class="post-tags">
+    
+      <i class="iconfont icon-tag">
+        <a rel="tag" href = /tags/java/ >java</a>
+      </i>
+    
+  </div>
+
+      
+      <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
+        <div class="post-abstract mdui-typo ">
+          
+            <p>今天学习代码规范，主要分为6个部分</p>
+<blockquote>
+<p>编程规约，异常日志，安全规约，MySQL 数据库，工程结构，设计规约</p>
+</blockquote>
+<hr>
+<h2 id="编程规约"><a href="#编程规约" class="headerlink" title="编程规约"></a>编程规约</h2><ul>
+<li>命名风格</li>
+</ul>
+<ol>
+<li>代码中的命名均不能以下划线或美元符号开始，也不能以下划线或美元符号结束。</li>
+<li>所有编程相关的命名严禁使用拼音与英文混合的方式，更不允许直接使用中文的方式。</li>...
+          
         </div>
         
-            <div class="collection-item">
-                <h3><a href="/2020/12/21/580%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E4%B8%89/">580项目实战三</a></h3>
-                <time itemprop="dateCreated" datetime=2020-12-21 >
-                    2020.12.21
-                </time>
-            </div>
+        <div style="text-align:center;">
+          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2020/12/07/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/">阅读更多</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="mdui-card mdui-m-b-5 mdui-hoverable">    
+      
+      
+        <div class="post-header"> 
+  <a class="post-header-title" href="/2020/12/06/the-first-blog/">the-first-blog</a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      发布于:&nbsp;2020-12-06
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      更新于:&nbsp;2020-12-06
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      分类于:&nbsp;<a class="category-link" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a>
+    </span>
+    
+  </div>
+</div>   
+    
+
+
+
+      
+      
+  <div class="post-tags">
+    
+      <i class="iconfont icon-tag">
+        <a rel="tag" href = /tags/java/ >java</a>
+      </i>
+    
+  </div>
+
+      
+      <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
+        <div class="post-abstract mdui-typo ">
+          
+            <p>前几天开始了实习培训</p>
+<ul>
+<li>第一天上午在和未来的同事在互相认识的过程中悄悄过去了。</li>
+<li>中午恰饭时间，休息时间有一丢丢短（┯_┯）<blockquote>
+<p>没想到公司后面就有食堂</p>
+</blockquote>
+</li>
+<li>下午，老师给我们分享了很多他的阅历，有趣的同时也引人深思</li>
+</ul>
+<hr>
+<p>对了，第一天我还是记住了点东西的（→_→）<br>老师讲的开发流程</p>
+<blockquote>
+<p>市场调研-风险评估-可行性分析-需求分析（外部）-概要设计-需求（内部）-详细设计-整合-单元测试-集成测试...
+          
+        </div>
         
-            <div class="collection-item">
-                <h3><a href="/2020/12/18/580%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E4%BA%8C/">580项目实战二</a></h3>
-                <time itemprop="dateCreated" datetime=2020-12-18 >
-                    2020.12.18
-                </time>
-            </div>
-        
-            <div class="collection-item">
-                <h3><a href="/2020/12/17/580%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/">580项目实战</a></h3>
-                <time itemprop="dateCreated" datetime=2020-12-17 >
-                    2020.12.17
-                </time>
-            </div>
-        
+        <div style="text-align:center;">
+          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2020/12/06/the-first-blog/">阅读更多</a>
+        </div>
+      </div>
+    </article>
+
+
+
+  <nav style="text-align: center;">
+    <div class="pagination">
+      <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
     </div>
-</div>
-
-
+  </nav>
 
   </main>
   <footer id="footer" class="mdui-text-center mdui-m-t-5 mdui-p-b-2 mdui-p-t-4 mdui-color-theme">
