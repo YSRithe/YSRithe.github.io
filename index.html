@@ -266,6 +266,55 @@
       
       
         <div class="post-header"> 
+  <a class="post-header-title" href="/2021/01/07/kafka%E5%AD%A6%E4%B9%A0/">kafka学习</a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      发布于:&nbsp;2021-01-07
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      更新于:&nbsp;2021-01-07
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      分类于:&nbsp;<a class="category-link" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a>
+    </span>
+    
+  </div>
+</div>   
+    
+
+
+
+      
+      
+  <div class="post-tags">
+    
+      <i class="iconfont icon-tag">
+        <a rel="tag" href = /tags/kafka/ >kafka</a>
+      </i>
+    
+  </div>
+
+      
+      <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
+        <div class="post-abstract mdui-typo ">
+          
+            <h2 id="一、为什么需要消息系统"><a href="#一、为什么需要消息系统" class="headerlink" title="一、为什么需要消息系统"></a><strong>一、为什么需要消息系统</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">1.解耦：　　允许你独立的扩展或修改两边的处理过程，只要确保它们遵守同样的接口约束。</span><br><span class="line">2.冗余：</span><br><span class="line">　　消息队列把数据进行持久化直到它们已经被完全处理，通过这一方式规避了数据丢失风险。许多消息队列所采用的&quot;插入-获取-删除&quot;范式中，在把一个消息从队列中删除之前，需要你的处理系统明确的指出该消息已经被处理完毕，从而确保你的数据被安全的保存直到你使用完毕。</span><br><span class="line">3.扩展性：</span><br><span class="line">　　因为消息队列解耦了你的处理过程，所以增大消息入队和处理的频率是很容易的，只要另外增加处理过程即可。</span><br><span class="line">4.灵活性 &amp; 峰值处理能力：</span><br><span class="line">　　在访问量剧增的情况下，应用仍然需要继续发挥作用，但是这样的突发流量并不常见。如果为以能处理这类峰值访问为标准来投入资源随时待命无疑是巨大的浪费。使用消息队列能够使关键组件顶住突发的访问压力，而不会因为突发的超负荷的请求而完全崩溃。</span><br><span class="line">5.可恢复性：</span><br><span class="line">　　系统的一部分组件失效时，不会影响到整个系统。消息队列降低了进程间的耦合度，所以即使一个处理消息的进程挂掉，加入队列中的消息仍然可以在系统恢复后被处理。</span><br><span class="line">6.顺序保证：</span><br><span class="line">　　在大多使用场景下，数据处理的顺序都很重要。大部分消息队列本来就是排序的，并且能保证数据会按照特定的顺序来处理。（Kafka 保证一个 Partition 内的消息的有序性）</span><br><span class="line">7.缓冲：</span><br><span class="line">　　有助于控制和优化数据流经过系统的速度，解决生产消息和消费消息的处理速度不一致的情况。</span><br><span class="line">8.异步通信：</span><br><span class="line">　　很多时候，用户不想也不需要立即处理消息。消息队列提供了异步处理机制，允许用户把一个消息放入队列，但并不立即处理它。想向队列中放入多少消息就放多少，然后在需要的时候再去处理它们。</span><br></pre></td></tr></table></figure>
+          
+        </div>
+        
+        <div style="text-align:center;">
+          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2021/01/07/kafka%E5%AD%A6%E4%B9%A0/">阅读更多</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="mdui-card mdui-m-b-5 mdui-hoverable">    
+      
+      
+        <div class="post-header"> 
   <a class="post-header-title" href="/2020/12/28/580%E9%A1%B9%E7%9B%AE%E9%AA%8C%E6%94%B6/">580项目验收</a>
   <div class="post-header-meta">
     <span>
@@ -736,60 +785,6 @@
       </div>
     </article>
 
-    <article class="mdui-card mdui-m-b-5 mdui-hoverable">    
-      
-      
-        <div class="post-header"> 
-  <a class="post-header-title" href="/2020/12/10/linux%E5%9F%BA%E7%A1%80/">linux基础</a>
-  <div class="post-header-meta">
-    <span>
-      <span class="iconfont icon-calendar"></span>
-      发布于:&nbsp;2020-12-10
-    </span>
-    <span>
-      <span class="iconfont icon-calendar-check"></span>
-      更新于:&nbsp;2020-12-10
-    </span>
-    <span>
-      <span class="iconfont icon-folder"></span>
-      分类于:&nbsp;<a class="category-link" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a>
-    </span>
-    
-  </div>
-</div>   
-    
-
-
-
-      
-      
-  <div class="post-tags">
-    
-      <i class="iconfont icon-tag">
-        <a rel="tag" href = /tags/linux/ >linux</a>
-      </i>
-    
-      <i class="iconfont icon-tag">
-        <a rel="tag" href = /tags/shell/ >shell</a>
-      </i>
-    
-  </div>
-
-      
-      <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
-        <div class="post-abstract mdui-typo ">
-          
-            <p>今天是温习linux基础，其实对于linux基础，我还是比较熟悉的，毕竟在校的这个学期学了linux操作系统，一些基本的命令还是知道的。<br>主要讲讲Linux的基本命令吧</p>
-<h2 id="目录切换"><a href="#目录切换" class="headerlink" title="目录切换"></a>目录切换</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd usr： 切换到该目录下usr目录</span><br><span class="line">cd ..（或cd..&#x2F;）： 切换到上一层目录</span><br><span class="line">cd &#x2F;： 切换到系统根目录</span><br><span class="line">cd ~： 切换到用户主目录</span><br><span class="line">cd -： 切换到上一个所在目录</span><br></pre></td></tr></table></figure>
-          
-        </div>
-        
-        <div style="text-align:center;">
-          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2020/12/10/linux%E5%9F%BA%E7%A1%80/">阅读更多</a>
-        </div>
-      </div>
-    </article>
-
 
 
   <nav style="text-align: center;">
@@ -806,7 +801,7 @@
         <a href="https://beian.miit.gov.cn" rel="noopener" target="_blank"></a>
       
       <span>
-        &copy; 2015 - 2020 
+        &copy; 2015 - 2021 
         
           <span style="color:#d9333f" class="iconfont icon-heart"></span>
         

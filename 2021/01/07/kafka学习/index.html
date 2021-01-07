@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="/icons/favicon.ico">
+    
+
+    
+    
+        
+<link rel="stylesheet" href="/css/mdui.min.v1.0.0.css">
+
+    
+    
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+          
+
+
+    
+    
+    <title>
+        
+            kafka学习 | YS&#39;s Blog
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 5.2.0"></head>
+<body class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-primary-teal mdui-theme-accent-blue">
+  
+  <header class="mdui-appbar mdui-appbar-fixed">
+  <div id="toolbar" class="mdui-toolbar mdui-color-theme">
+    <button class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="iconfont icon-menu"></i></button>
+    <a href="/" class="mdui-typo-headline">YS&#39;s Blog</a>
+    <a href="/" class="header-subtitle mdui-typo-headline"></a>
+    <div class="mdui-toolbar-spacer"></div>
+    <button class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: 'search'}"><i class="iconfont icon-search"></i></button>
+  </div>
+</header>
+
+<div class="mdui-dialog" id="search">
+  
+    <div class="search-form">
+      <input type="search" class="search-form-input" placeholder="请输入关键字" onfocus="listenSearchFunc()">
+    </div>
+    <div class="search-result" data-resource="/search.xml"></div>
+  
+</div>
+
+  <aside id="sidebar" class="mdui-drawer">
+    <div class="mdui-tab" mdui-tab>
+        <a href="#sidebar-tab1" id="sidebartab" class="mdui-ripple mdui-tab-active">站点概览</a>
+        <a href="#sidebar-tab2" id="sidebartab" class="mdui-ripple">关于</a>
+    </div>
+
+    
+    <div id="sidebar-tab1" class="mdui-p-a-1">
+        <div class="mdui-list">
+            
+                
+                <a href="/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-home"></i>
+                    </div>
+                    <div class="mdui-list-item-content">主页</div>
+                </a>
+            
+                
+                <a href="/tags/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-bookmark"></i>
+                    </div>
+                    <div class="mdui-list-item-content">标签</div>
+                </a>
+            
+                
+                <a href="/categories/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-folder"></i>
+                    </div>
+                    <div class="mdui-list-item-content">分类</div>
+                </a>
+            
+                
+                <a href="/archives/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-archive"></i>
+                    </div>
+                    <div class="mdui-list-item-content">归档</div>
+                </a>
+            
+                
+                <a href="/tools/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-tools"></i>
+                    </div>
+                    <div class="mdui-list-item-content">工具箱</div>
+                </a>
+            
+                
+                <a href="/about/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-user"></i>
+                    </div>
+                    <div class="mdui-list-item-content">关于</div>
+                </a>
+            
+            <div class="mdui-list-item mdui-ripple">
+                <div class="mdui-list-item-icon">
+                    <i class="iconfont icon-moon"></i>
+                </div>
+                <div class="mdui-list-item-content">夜间模式</div>
+                <label class="mdui-switch" id="darkmode">
+                  <input type="checkbox" id="nightmode_switch"/>
+                  <i class="mdui-switch-icon"></i>
+                </label>
+            </div>           
+        </div>
+    </div>
+
+    
+    <div id="sidebar-tab2" class="mdui-p-a-1">
+        <div class="sidebar-overview">
+            <div class="sidebar-avatar">
+                
+                    <img src="/icons/avatar.gif"/>
+                
+            </div>
+            <div class="sidebar-author-name">Yang Song</div>
+            <div class="sidebar-description">努力学习的小白</div>
+        </div>
+        <div class="sidebar-links">
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-mail"></i></span>
+                    <a href="mailto:1771209929@qq.com" class="mdui-chip-title">E-Mail</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-github"></i></span>
+                    <a target="_blank" rel="noopener" href="https://github.com/YSRithe" class="mdui-chip-title">GitHub</a>
+                </div>
+            
+        </div>
+        <ul class="mdui-list" mdui-collapse="{accordion: true}">
+            <li class="mdui-collapse-item">
+                <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-link"></i>
+                    </div>
+                    <div class="mdui-list-item-content">友情链接</div>
+                    <div class="mdui-collapse-item-arrow">
+                        <i class="mdui-list-item-icon iconfont icon-angle-down"></i>
+                    </div>
+                </div>
+                <ul id="linksList" class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                    
+                        <a target="_blank" rel="noopener" href="https://garybear.cn/hexo-theme-meadow/" class="mdui-list-item mdui-ripple">
+                            Meadow说明文档
+                        </a>
+                    
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="mdui-divider"></div>
+    
+    
+</aside>
+  
+  <main id="main-contain" class="mdui-container mdui-m-t-5">
+    <article id="article" class="mdui-card mdui-p-b-2 mdui-m-b-5">
+  <header class="mdui-card-media">
+    
+    
+      <div class="post-header"> 
+  <a class="post-header-title" href="/2021/01/07/kafka%E5%AD%A6%E4%B9%A0/">kafka学习</a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      发布于:&nbsp;2021-01-07
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      更新于:&nbsp;2021-01-07
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      分类于:&nbsp;<a class="category-link" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a>
+    </span>
+    
+      <span>
+        <span class="iconfont icon-eye"></span>
+        阅读次数:&nbsp;
+        <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+      </span>
+    
+  </div>
+</div>   
+    
+
+
+
+    
+    
+    <div class="mdui-card-menu">
+    
+      <button class="mdui-btn mdui-btn-icon mdui-text-color-teal" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="iconfont icon-share"></i></button>
+      <ul class="mdui-menu" id="share_menu">
+        <li class="mdui-menu-item">
+          <a href="http://service.weibo.com/share/share.php?appkey=&title=kafka学习&url=http://example.com/2021/01/07/kafka%E5%AD%A6%E4%B9%A0/&pic=http://example.com/null&searchPic=false&style=simple" target="_blank" class="mdui-ripple">分享到 Weibo</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://twitter.com/intent/tweet?text=kafka学习&url=http://example.com/2021/01/07/kafka%E5%AD%A6%E4%B9%A0/&via=Yang Song" target="_blank" class="mdui-ripple">分享到 Twitter</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2021/01/07/kafka%E5%AD%A6%E4%B9%A0/" target="_blank" class="mdui-ripple">分享到 Facebook</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://plus.google.com/share?url=http://example.com/2021/01/07/kafka%E5%AD%A6%E4%B9%A0/" target="_blank" class="mdui-ripple">分享到 Google+</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://example.com/2021/01/07/kafka%E5%AD%A6%E4%B9%A0/&title=kafka学习" target="_blank" class="mdui-ripple">分享到 LinkedIn</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="http://connect.qq.com/widget/shareqq/index.html?site=YS&#39;s Blog&title=kafka学习&summary=努力学习的小白&pics=http://example.com/null&url=http://example.com/2021/01/07/kafka%E5%AD%A6%E4%B9%A0/" target="_blank" class="mdui-ripple">分享到 QQ</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://telegram.me/share/url?url=http://example.com/2021/01/07/kafka%E5%AD%A6%E4%B9%A0/&text=kafka学习" target="_blank" class="mdui-ripple">分享到 Telegram</a>
+        </li>
+      </ul>
+    
+  </div>
+  </header>
+  
+  
+  
+  
+  <div class="post-tags">
+    
+      <i class="iconfont icon-tag">
+        <a rel="tag" href = /tags/kafka/ >kafka</a>
+      </i>
+    
+  </div>
+
+  
+  <div class="mdui-card-content mdui-typo mdui-p-x-4">
+    <h2 id="一、为什么需要消息系统"><a href="#一、为什么需要消息系统" class="headerlink" title="一、为什么需要消息系统"></a><strong>一、为什么需要消息系统</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">1.解耦：　　允许你独立的扩展或修改两边的处理过程，只要确保它们遵守同样的接口约束。</span><br><span class="line">2.冗余：</span><br><span class="line">　　消息队列把数据进行持久化直到它们已经被完全处理，通过这一方式规避了数据丢失风险。许多消息队列所采用的&quot;插入-获取-删除&quot;范式中，在把一个消息从队列中删除之前，需要你的处理系统明确的指出该消息已经被处理完毕，从而确保你的数据被安全的保存直到你使用完毕。</span><br><span class="line">3.扩展性：</span><br><span class="line">　　因为消息队列解耦了你的处理过程，所以增大消息入队和处理的频率是很容易的，只要另外增加处理过程即可。</span><br><span class="line">4.灵活性 &amp; 峰值处理能力：</span><br><span class="line">　　在访问量剧增的情况下，应用仍然需要继续发挥作用，但是这样的突发流量并不常见。如果为以能处理这类峰值访问为标准来投入资源随时待命无疑是巨大的浪费。使用消息队列能够使关键组件顶住突发的访问压力，而不会因为突发的超负荷的请求而完全崩溃。</span><br><span class="line">5.可恢复性：</span><br><span class="line">　　系统的一部分组件失效时，不会影响到整个系统。消息队列降低了进程间的耦合度，所以即使一个处理消息的进程挂掉，加入队列中的消息仍然可以在系统恢复后被处理。</span><br><span class="line">6.顺序保证：</span><br><span class="line">　　在大多使用场景下，数据处理的顺序都很重要。大部分消息队列本来就是排序的，并且能保证数据会按照特定的顺序来处理。（Kafka 保证一个 Partition 内的消息的有序性）</span><br><span class="line">7.缓冲：</span><br><span class="line">　　有助于控制和优化数据流经过系统的速度，解决生产消息和消费消息的处理速度不一致的情况。</span><br><span class="line">8.异步通信：</span><br><span class="line">　　很多时候，用户不想也不需要立即处理消息。消息队列提供了异步处理机制，允许用户把一个消息放入队列，但并不立即处理它。想向队列中放入多少消息就放多少，然后在需要的时候再去处理它们。</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="二、kafka-架构"><a href="#二、kafka-架构" class="headerlink" title="二、kafka 架构"></a><strong>二、kafka 架构</strong></h2><h3 id="2-1-拓扑结构"><a href="#2-1-拓扑结构" class="headerlink" title="2.1 拓扑结构"></a><strong>2.1 拓扑结构</strong></h3><p>如下图：</p>
+<p><img src="https://images2015.cnblogs.com/blog/897247/201610/897247-20161012133845281-1066342716.png" alt="img"></p>
+<p>图.1</p>
+<h3 id="2-2-相关概念"><a href="#2-2-相关概念" class="headerlink" title="2.2 相关概念"></a><strong>2.2 相关概念</strong></h3><p>如图.1中，kafka 相关名词解释如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">1.producer：</span><br><span class="line">　　消息生产者，发布消息到 kafka 集群的终端或服务。</span><br><span class="line">2.broker：</span><br><span class="line">　　kafka 集群中包含的服务器。</span><br><span class="line">3.topic：</span><br><span class="line">　　每条发布到 kafka 集群的消息属于的类别，即 kafka 是面向 topic 的。</span><br><span class="line">4.partition：</span><br><span class="line">　　partition 是物理上的概念，每个 topic 包含一个或多个 partition。kafka 分配的单位是 partition。</span><br><span class="line">5.consumer：</span><br><span class="line">　　从 kafka 集群中消费消息的终端或服务。</span><br><span class="line">6.Consumer group：</span><br><span class="line">　　high-level consumer API 中，每个 consumer 都属于一个 consumer group，每条消息只能被 consumer group 中的一个 Consumer 消费，但可以被多个 consumer group 消费。</span><br><span class="line">7.replica：</span><br><span class="line">　　partition 的副本，保障 partition 的高可用。</span><br><span class="line">8.leader：</span><br><span class="line">　　replica 中的一个角色， producer 和 consumer 只跟 leader 交互。</span><br><span class="line">9.follower：</span><br><span class="line">　　replica 中的一个角色，从 leader 中复制数据。</span><br><span class="line">10.controller：</span><br><span class="line">　　kafka 集群中的其中一个服务器，用来进行 leader election 以及 各种 failover。</span><br><span class="line">12.zookeeper：</span><br><span class="line">　　kafka 通过 zookeeper 来存储集群的 meta 信息。</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3-zookeeper-节点"><a href="#2-3-zookeeper-节点" class="headerlink" title="2.3 zookeeper 节点"></a><strong>2.3 zookeeper 节点</strong></h3><p>kafka 在 zookeeper 中的存储结构如下图所示：</p>
+<p> <img src="https://images2015.cnblogs.com/blog/897247/201610/897247-20161012133618468-2107696384.png" alt="img"></p>
+<p>图.2</p>
+<h2 id="三、producer-发布消息"><a href="#三、producer-发布消息" class="headerlink" title="三、producer 发布消息"></a><strong>三、producer 发布消息</strong></h2><h3 id="3-1-写入方式"><a href="#3-1-写入方式" class="headerlink" title="3.1 写入方式"></a><strong>3.1 写入方式</strong></h3><p>producer 采用 push 模式将消息发布到 broker，每条消息都被 append 到 patition 中，属于顺序写磁盘（顺序写磁盘效率比随机写内存要高，保障 kafka 吞吐率）。</p>
+<h3 id="3-2-消息路由"><a href="#3-2-消息路由" class="headerlink" title="3.2 消息路由"></a><strong>3.2 消息路由</strong></h3><p>producer 发送消息到 broker 时，会根据分区算法选择将其存储到哪一个 partition。其路由机制为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. 指定了 patition，则直接使用；</span><br><span class="line">2. 未指定 patition 但指定 key，通过对 key 的 value 进行hash 选出一个 patition</span><br><span class="line">3. patition 和 key 都未指定，使用轮询选出一个 patition。</span><br></pre></td></tr></table></figure>
+
+<p> 附上 java 客户端分区源码，一目了然：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;创建消息实例</span><br><span class="line">public ProducerRecord(String topic, Integer partition, Long timestamp, K key, V value) &#123;</span><br><span class="line">     if (topic &#x3D;&#x3D; null)</span><br><span class="line">          throw new IllegalArgumentException(&quot;Topic cannot be null&quot;);</span><br><span class="line">     if (timestamp !&#x3D; null &amp;&amp; timestamp &lt; 0)</span><br><span class="line">          throw new IllegalArgumentException(&quot;Invalid timestamp &quot; + timestamp);</span><br><span class="line">     this.topic &#x3D; topic;</span><br><span class="line">     this.partition &#x3D; partition;</span><br><span class="line">     this.key &#x3D; key;</span><br><span class="line">     this.value &#x3D; value;</span><br><span class="line">     this.timestamp &#x3D; timestamp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;计算 patition，如果指定了 patition 则直接使用，否则使用 key 计算</span><br><span class="line">private int partition(ProducerRecord&lt;K, V&gt; record, byte[] serializedKey , byte[] serializedValue, Cluster cluster) &#123;</span><br><span class="line">     Integer partition &#x3D; record.partition();</span><br><span class="line">     if (partition !&#x3D; null) &#123;</span><br><span class="line">          List&lt;PartitionInfo&gt; partitions &#x3D; cluster.partitionsForTopic(record.topic());</span><br><span class="line">          int lastPartition &#x3D; partitions.size() - 1;</span><br><span class="line">          if (partition &lt; 0 || partition &gt; lastPartition) &#123;</span><br><span class="line">               throw new IllegalArgumentException(String.format(&quot;Invalid partition given with record: %d is not in the range [0...%d].&quot;, partition, lastPartition));</span><br><span class="line">          &#125;</span><br><span class="line">          return partition;</span><br><span class="line">     &#125;</span><br><span class="line">     return this.partitioner.partition(record.topic(), record.key(), serializedKey, record.value(), serializedValue, cluster);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 使用 key 选取 patition</span><br><span class="line">public int partition(String topic, Object key, byte[] keyBytes, Object value, byte[] valueBytes, Cluster cluster) &#123;</span><br><span class="line">     List&lt;PartitionInfo&gt; partitions &#x3D; cluster.partitionsForTopic(topic);</span><br><span class="line">     int numPartitions &#x3D; partitions.size();</span><br><span class="line">     if (keyBytes &#x3D;&#x3D; null) &#123;</span><br><span class="line">          int nextValue &#x3D; counter.getAndIncrement();</span><br><span class="line">          List&lt;PartitionInfo&gt; availablePartitions &#x3D; cluster.availablePartitionsForTopic(topic);</span><br><span class="line">          if (availablePartitions.size() &gt; 0) &#123;</span><br><span class="line">               int part &#x3D; DefaultPartitioner.toPositive(nextValue) % availablePartitions.size();</span><br><span class="line">               return availablePartitions.get(part).partition();</span><br><span class="line">          &#125; else &#123;</span><br><span class="line">               return DefaultPartitioner.toPositive(nextValue) % numPartitions;</span><br><span class="line">          &#125;</span><br><span class="line">     &#125; else &#123;</span><br><span class="line">          &#x2F;&#x2F;对 keyBytes 进行 hash 选出一个 patition</span><br><span class="line">          return DefaultPartitioner.toPositive(Utils.murmur2(keyBytes)) % numPartitions;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3-写入流程"><a href="#3-3-写入流程" class="headerlink" title="3.3 写入流程"></a><strong>3.3 写入流程</strong></h3><p> producer 写入消息序列图如下所示：</p>
+<p><img src="https://images2015.cnblogs.com/blog/897247/201610/897247-20161012131406546-202763949.png" alt="img"></p>
+<p>图.3</p>
+<p>流程说明：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. producer 先从 zookeeper 的 &quot;&#x2F;brokers&#x2F;...&#x2F;state&quot; 节点找到该 partition 的 leader</span><br><span class="line">2. producer 将消息发送给该 leader</span><br><span class="line">3. leader 将消息写入本地 log</span><br><span class="line">4. followers 从 leader pull 消息，写入本地 log 后 leader 发送 ACK</span><br><span class="line">5. leader 收到所有 ISR 中的 replica 的 ACK 后，增加 HW（high watermark，最后 commit 的 offset） 并向 producer 发送 ACK</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-4-producer-delivery-guarantee"><a href="#3-4-producer-delivery-guarantee" class="headerlink" title="3.4 producer delivery guarantee"></a><strong>3.4 producer delivery guarantee</strong></h3><p> 一般情况下存在三种情况：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. At most once 消息可能会丢，但绝不会重复传输</span><br><span class="line">2. At least one 消息绝不会丢，但可能会重复传输</span><br><span class="line">3. Exactly once 每条消息肯定会被传输一次且仅传输一次</span><br></pre></td></tr></table></figure>
+
+<p>当 producer 向 broker 发送消息时，一旦这条消息被 commit，由于 replication 的存在，它就不会丢。但是如果 producer 发送数据给 broker 后，遇到网络问题而造成通信中断，那 Producer 就无法判断该条消息是否已经 commit。虽然 Kafka 无法确定网络故障期间发生了什么，但是 producer 可以生成一种类似于主键的东西，发生故障时幂等性的重试多次，这样就做到了 Exactly once，但目前还并未实现。所以目前默认情况下一条消息从 producer 到 broker 是确保了 At least once，可通过设置 producer 异步发送实现At most once。</p>
+
+  </div>
+  <!--文末结束语-->
+  
+    <div style="text-align:center;color: #ccc;font-size:24px;"> --- 本文结束 <i class="iconfont icon-heartbeat" style="font-size:24px;"></i> The End --- </div>
+  
+  <!--页脚广告-->
+  
+  <div class="mdui-divider"></div>
+  
+  <nav>
+    
+    
+      <a rel="next" class="post-nav-item mdui-float-right" href="/2020/12/28/580%E9%A1%B9%E7%9B%AE%E9%AA%8C%E6%94%B6/">
+        <span>580项目验收</span>
+        <i class="iconfont icon-angle-right"></i>
+      </a>
+    
+  </nav>
+</article>
+
+
+
+
+  <div class="toc-button"  style="z-index: 100;">
+    <button class="mdui-fab mdui-ripple mdui-color-teal" mdui-menu="{target: '#toc'}"><i class="iconfont icon-list"></i></button>
+    <ul class="mdui-menu" id="toc">
+      <li class="mdui-menu-item">
+        <a href="/2021/01/07/kafka%E5%AD%A6%E4%B9%A0/" id="toc-header" class="mdui-ripple">文章目录</a>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E6%B6%88%E6%81%AF%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.</span> <span class="toc-text">一、为什么需要消息系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81kafka-%E6%9E%B6%E6%9E%84"><span class="toc-number">2.</span> <span class="toc-text">二、kafka 架构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E6%8B%93%E6%89%91%E7%BB%93%E6%9E%84"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 拓扑结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 相关概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-zookeeper-%E8%8A%82%E7%82%B9"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 zookeeper 节点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81producer-%E5%8F%91%E5%B8%83%E6%B6%88%E6%81%AF"><span class="toc-number">3.</span> <span class="toc-text">三、producer 发布消息</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E5%86%99%E5%85%A5%E6%96%B9%E5%BC%8F"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 写入方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E6%B6%88%E6%81%AF%E8%B7%AF%E7%94%B1"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 消息路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E5%86%99%E5%85%A5%E6%B5%81%E7%A8%8B"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 写入流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-producer-delivery-guarantee"><span class="toc-number">3.4.</span> <span class="toc-text">3.4 producer delivery guarantee</span></a></li></ol></li></ol>
+      </li>
+    </ul>
+  </div>
+
+
+
+    <div id="comment" class="mdui-card mdui-p-a-2 mdui-m-b-5">
+      <div class="mdui-tab" mdui-tab>
+        
+          <a href="#comment-tab0" class="mdui-ripple">gitalk</a>
+        
+          <a href="#comment-tab1" class="mdui-ripple">livere</a>
+        
+      </div>
+      
+        <div id="comment-tab0" class="mdui-p-a-2">
+          <div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+<script>
+  var gitalk = new Gitalk({
+    clientID: '',
+    clientSecret: '',
+    repo: '',
+    owner: '',
+    admin: [''],
+    id:  md5(location.pathname) ,
+    distractionFreeMode: 'true',
+  });
+  gitalk.render('gitalk-container');
+</script>
+        </div>
+      
+        <div id="comment-tab1" class="mdui-p-a-2">
+          <div id="lv-container" data-id="city" data-uid="">
+  <script type="text/javascript">
+    (function (d, s) {
+      var j, e = d.getElementsByTagName(s)[0];
+      if (typeof LivereTower === 'function') { return; }
+      j = d.createElement(s);
+      j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+      j.async = true;
+      e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+  </script>
+  <noscript>Please enable JavaScript to view the comments powered by LiveRe.</noscript>
+</div>
+        </div>
+      
+    </div>
+
+  </main>
+  <footer id="footer" class="mdui-text-center mdui-m-t-5 mdui-p-b-2 mdui-p-t-4 mdui-color-theme">
+  <div class="mdui-container">
+    <div class="mdui-row">
+      
+        <a href="https://beian.miit.gov.cn" rel="noopener" target="_blank"></a>
+      
+      <span>
+        &copy; 2015 - 2021 
+        
+          <span style="color:#d9333f" class="iconfont icon-heart"></span>
+        
+        Yang Song
+      </span>
+    </div>
+    <div class="mdui-row">
+      
+        <div class="mdui-col-xs-6 mdui-text-right">
+          <span>Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a></span>
+        </div>
+        <div class="mdui-col-xs-6 mdui-text-left">
+          <span>Theme: <a href="https://github.com/kb1000fx/Meadow" rel="noopener" target="_blank">Meadow</a></span>
+        </div>
+      
+    </div>
+    <div class="mdui-row">
+      
+        <div class="mdui-col-xs-6 mdui-text-right">
+          <span id="busuanzi_container_site_uv" style="display: none;"> <span class="iconfont icon-user"></span>总访客量 <span id="busuanzi_value_site_uv"></span></span>
+        </div>
+        <div class="mdui-col-xs-6 mdui-text-left">
+          <span id="busuanzi_container_site_pv" style="display: none;"> <span class="iconfont icon-eye"></span>总访问量 <span id="busuanzi_value_site_pv"></span></span>
+        </div>
+      
+    </div>
+ </div>
+</footer>
+  
+  <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-teal" style="z-index:100;"><i class="iconfont icon-arrowup"></i></button>
+  
+  
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({
+        startOnLoad: true,
+        theme: "default"
+    });</script>
+
+
+
+
+    
+<script src="/js/mdui.min.v1.0.0.js"></script>
+
+
+
+
+<script src="/js/meadow.js"></script>
+
+</body>
+</html >
