@@ -266,6 +266,63 @@
       
       
         <div class="post-header"> 
+  <a class="post-header-title" href="/2021/03/05/%E4%BA%91%E5%BC%80%E5%8F%91%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">云开发遇到的问题</a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      发布于:&nbsp;2021-03-05
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      更新于:&nbsp;2021-03-05
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      分类于:&nbsp;<a class="category-link" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a>
+    </span>
+    
+  </div>
+</div>   
+    
+
+
+
+      
+      
+  <div class="post-tags">
+    
+      <i class="iconfont icon-tag">
+        <a rel="tag" href = /tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/ >小程序</a>
+      </i>
+    
+      <i class="iconfont icon-tag">
+        <a rel="tag" href = /tags/%E4%BA%91%E5%BC%80%E5%8F%91/ >云开发</a>
+      </i>
+    
+      <i class="iconfont icon-tag">
+        <a rel="tag" href = /tags/%E4%BA%91%E5%87%BD%E6%95%B0/ >云函数</a>
+      </i>
+    
+  </div>
+
+      
+      <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
+        <div class="post-abstract mdui-typo ">
+          
+            <p>我选择用云开发做毕业设计，在导入网上的开源模板进行学习的时候，我发现在调用获取openid的云函数一直没有成功，在网上找遍了解决方法都没能成功解决。网上说的最多的就是异步请求，需要加sync和await，但我的代码没有问题，云函数调用也是成功的，但就是无法拿到返回值。后来无意间进行函数调试一次之后，竟然获取返回值成功了，至今摸不清头脑。</p>
+          
+        </div>
+        
+        <div style="text-align:center;">
+          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2021/03/05/%E4%BA%91%E5%BC%80%E5%8F%91%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">阅读更多</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="mdui-card mdui-m-b-5 mdui-hoverable">    
+      
+      
+        <div class="post-header"> 
   <a class="post-header-title" href="/2021/01/10/kafka%E5%AD%A6%E4%B9%A0%E4%BA%8C/">kafka学习(二)</a>
   <div class="post-header-meta">
     <span>
@@ -714,64 +771,6 @@
         
         <div style="text-align:center;">
           <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2020/12/16/nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E5%AE%9E%E6%88%98/">阅读更多</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="mdui-card mdui-m-b-5 mdui-hoverable">    
-      
-      
-        <div class="post-header"> 
-  <a class="post-header-title" href="/2020/12/14/nginx%E5%9F%BA%E7%A1%80/">nginx基础</a>
-  <div class="post-header-meta">
-    <span>
-      <span class="iconfont icon-calendar"></span>
-      发布于:&nbsp;2020-12-14
-    </span>
-    <span>
-      <span class="iconfont icon-calendar-check"></span>
-      更新于:&nbsp;2020-12-14
-    </span>
-    <span>
-      <span class="iconfont icon-folder"></span>
-      分类于:&nbsp;<a class="category-link" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a>
-    </span>
-    
-  </div>
-</div>   
-    
-
-
-
-      
-      
-  <div class="post-tags">
-    
-      <i class="iconfont icon-tag">
-        <a rel="tag" href = /tags/linux/ >linux</a>
-      </i>
-    
-      <i class="iconfont icon-tag">
-        <a rel="tag" href = /tags/nginx/ >nginx</a>
-      </i>
-    
-      <i class="iconfont icon-tag">
-        <a rel="tag" href = /tags/%E5%89%8D%E7%AB%AF/ >前端</a>
-      </i>
-    
-  </div>
-
-      
-      <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
-        <div class="post-abstract mdui-typo ">
-          
-            <p>今天学习nginx基础，Nginx是一个高性能WEB服务器，除它之外Apache、Tomcat、Jetty、IIS，它们都是Web服务器。<br>在安装nginx前，需要先安装所需的核心库：GCC编译器，PCRE库，zlib库，OpenSSL开发库。<br><code>yum -y install make zlib zlib-devel gcc-c++ libtool openssl openssl-devel pcre pcre-devel</code><br>然后下载nginx并解压安装：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget http:&#x2F;&#x2F;nginx.org&#x2F;download&#x2F;nginx-1.14.0.tar.gz</span><br><span class="line">tar -zxvf nginx-1.14.0.tar.gz</span><br><span class="line">.&#x2F;configure --prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;nginx --with-http_stub_status_module --with-http_ssl_module --with-debug</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
-          
-        </div>
-        
-        <div style="text-align:center;">
-          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2020/12/14/nginx%E5%9F%BA%E7%A1%80/">阅读更多</a>
         </div>
       </div>
     </article>
